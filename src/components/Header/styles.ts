@@ -28,4 +28,5 @@ export const Location = styled.button`
   border: none;
   padding: 0.5rem;
   border-radius: 8px;
+  gap: 0.2rem;
 `
