@@ -20,7 +20,7 @@ export const HeaderTitle = styled.div`
   }
 `
 
-export const Address = styled.form`
+export const Address = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -36,25 +36,29 @@ export const Address = styled.form`
     }
   }
 
-  .inputContainer {
-    display: flex;
-    gap: 1rem;
-    width: 100%;
+  .error {
+    display: inline-block;
+    color: red;
+  }
+`
+export const InputContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+  max-width: 100%;
 
-    .number {
-      flex: 1;
-    }
+  .number {
+    flex: 1;
+  }
 
-    .complement {
-      flex: 2;
-    }
+  .complement {
+    flex: 2;
+  }
 
-    .city {
-      flex: 1;
-    }
+  .city {
+    flex: 1;
+  }
 
-    .state {
-      width: 4rem;
-    }
+  .state {
+    width: 4rem;
   }
 `

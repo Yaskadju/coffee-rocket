@@ -28,20 +28,38 @@ export const PaymentButtonContainer = styled.div`
   gap: 1rem;
 `
 
-export const PaymentButton = styled.button`
+interface RadioBoxProps {
+  isActive: boolean
+}
+
+export const PaymentButton = styled.button<RadioBoxProps>`
   flex: 1;
   font-size: 0.7rem;
   padding: 1rem 0.75rem;
   border-radius: 6px;
   border: none;
-  background: ${props => props.theme["base-button"]};
+  outline: ${props => (props.isActive ? `1px solid ${props.theme["purple"]}` : "")};
+  background: ${props =>
+    props.isActive ? props => props.theme["purple-light"] : props.theme["base-button"]};
 
   display: flex;
   justify-content: center;
   gap: 0.5rem;
 
-  &:focus {
+  /* &:focus {
     outline: 1px solid ${props => props.theme["purple"]};
     background: ${props => props.theme["purple-light"]};
-  }
+  } */
+
+  /* & > input[type="radio"]:focus {
+    outline: 1px solid ${props => props.theme["purple"]};
+    background: ${props => props.theme["purple-light"]};
+  } */
+
+  /* input {
+    &:checked {
+      outline: 1px solid ${props => props.theme["purple"]};
+      background: ${props => props.theme["purple-light"]};
+    }
+  } */
 `

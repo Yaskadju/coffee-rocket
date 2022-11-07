@@ -83,6 +83,12 @@ export const Card = styled.div`
           color: ${props => props.theme["purple"]};
           padding: 0 0.5rem;
         }
+
+        input {
+          width: 1rem;
+          border: none;
+          background: inherit;
+        }
       }
 
       .cartIcon {

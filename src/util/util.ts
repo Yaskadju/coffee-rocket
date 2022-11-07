@@ -1,7 +1,4 @@
 export function formatPrice(price: number) {
-  let formattedPrice = price.toString().replace(".", ",")
-
-  // console.log(formattedPrice.split(","))
-
+  let formattedPrice = price.toFixed(2).toString().replace(".", ",")
   return formattedPrice
 }

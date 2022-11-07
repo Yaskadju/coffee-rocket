@@ -4,6 +4,9 @@ export const ConfirmationContainer = styled.div`
   background: ${props => props.theme["base-card"]};
   padding: 2.5rem;
   border-radius: 6px 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 `
 export const CoffeeItem = styled.div`
   display: flex;

@@ -19,11 +19,11 @@ export const Cards = styled.div`
     grid-template-columns: repeat(1, 1fr);
   }
 
-  @media (min-width: 320px) and (max-width: 980px) {
+  @media (min-width: 425px) and (max-width: 980px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* @media (max-width: 1260px) {
-    max-width: 22rem;
-  } */
+  @media (min-width: 980px) and (max-width: 1340px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `

@@ -43,9 +43,10 @@ export function Home() {
 
       <C.Cards>
         {coffees &&
-          coffees.map(coffee => (
+          coffees.map((coffee, index) => (
             <CoffeeCard
               key={coffee.id}
+              id={coffee.id}
               image={coffee.image}
               name={coffee.name}
               priceFormatted={coffee.priceFormatted}

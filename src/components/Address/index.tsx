@@ -1,10 +1,28 @@
-import { Payment } from "../Payment"
 import * as C from "./styles"
 import { MapPinLine } from "phosphor-react"
-import { useForm } from "react-hook-form"
+import { useFormContext } from "react-hook-form"
+
+type AddressProps = {}
+
+type FormInputs = {
+  cep: string
+  street: string
+  number: number
+  complement: string
+  neighborhood: string
+  city: string
+  state: string
+}
 
 export function Address() {
-  const { register, handleSubmit } = useForm()
+  const {
+    register,
+    setError,
+    formState: { errors }
+  } = useFormContext<FormInputs>()
+
+  console.log({ errors })
+
   return (
     <C.AddressContainer>
       <C.Header>
@@ -15,21 +33,62 @@ export function Address() {
         </C.HeaderTitle>
       </C.Header>
       <C.Address>
-        <div className="inputContainer">
-          <input className="inputAddress" type="text" placeholder="CEP" />
-        </div>
-        <input className="inputAddress" type="text" placeholder="Rua" />
-        <div className="inputContainer">
-          <input className="inputAddress number" type="text" placeholder="Número" />
-          <input className="inputAddress complement" type="text" placeholder="Complemento" />
-        </div>
-        <div className="inputContainer">
-          <input className="inputAddress" type="text" placeholder="Bairro" />
-          <div className="inputContainer">
-            <input className="inputAddress city" type="text" placeholder="Cidade" />
-            <input className="inputAddress state" type="text" placeholder="UF" />
-          </div>
-        </div>
+        <C.InputContainer>
+          <input
+            className="inputAddress"
+            type="text"
+            placeholder="CEP"
+            {...register("cep", { required: "This is required." })}
+          />
+        </C.InputContainer>
+        {errors.cep && <p className="error">{errors.cep.message}</p>}
+        <input
+          className="inputAddress"
+          type="text"
+          placeholder="Rua"
+          {...register("street", { required: "This is required." })}
+        />
+        {errors.street && <p className="error">{errors.street.message}</p>}
+        <C.InputContainer>
+          <input
+            className="inputAddress number"
+            type="text"
+            placeholder="Número"
+            {...register("number", { valueAsNumber: true })}
+          />
+          <input
+            className="inputAddress complement"
+            type="text"
+            placeholder="Complemento"
+            {...register("complement")}
+          />
+        </C.InputContainer>
+        {errors.number && <p className="error">{errors.number.message}</p>}
+        <C.InputContainer>
+          <input
+            className="inputAddress"
+            type="text"
+            placeholder="Bairro"
+            {...register("neighborhood", { required: "This is required." })}
+          />
+          <C.InputContainer>
+            <input
+              className="inputAddress city"
+              type="text"
+              placeholder="Cidade"
+              {...register("city", { required: "This is required." })}
+            />
+            <input
+              className="inputAddress state"
+              type="text"
+              placeholder="UF"
+              {...register("state", { required: "This is required." })}
+            />
+          </C.InputContainer>
+        </C.InputContainer>
+        {errors.neighborhood && <p className="error">{errors.neighborhood.message}</p>}
+        {errors.city && <p className="error">{errors.city.message}</p>}
+        {errors.state && <p className="error">{errors.state.message}</p>}
       </C.Address>
     </C.AddressContainer>
   )
